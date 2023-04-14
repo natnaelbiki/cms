@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}WSD Contact Directory{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">WSD</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-2 mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/managers">Managers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/branchs">Branches</a>
+        </li>
+      </ul>
+      <form class="d-flex" action="{% url 'search_manager' %}" method="get">
+        <input class="form-control me-2" name="qm" type="text" placeholder="Search Managers">
+      </form>
+      <form class="d-flex" action="{% url 'search_branch' %}" method="get">
+        <input class="form-control me-2" name="qb" type="text" placeholder="Search Branches">
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="row text-center">
+  <h2><center>Welcome To CBE Wolaita Sodo District Contact Directory</center></h2>
+</div>
+{% block content %}
+{% endblock %}
+<div class="fixed-bottom">
+  <footer class="py-3 my-4">
+    <p class="text-center text-body-secondary">© 2023 @CBE Wolaita Sodo District, ISOS Team</p>
+  </footer>
+</div>
+</body>
+</html>
